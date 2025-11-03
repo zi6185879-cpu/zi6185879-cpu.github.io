@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仔星电竞俱乐部</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+        
+        body {
+            background-color: #0d1117;
+            color: #e6edf3;
+            line-height: 1.6;
+            padding-bottom: 70px;
+        }
+        
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        
+        /* 顶部区域 */
+        .header {
+            background: #161b22;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #30363d;
+            text-align: center;
+        }
+        
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #58a6ff;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: #8b949e;
+        }
+        
+        /* 商品卡片 */
+        .product-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .product-card {
+            background: #161b22;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #30363d;
+        }
+        
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: rgba(88, 166, 255, 0.1);
+            border-bottom: 1px solid #30363d;
+        }
+        
+        .product-tag {
+            background: #238636;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .product-content {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #58a6ff;
+            font-weight: bold;
+        }
+        
+        .product-desc {
+            font-size: 14px;
+            color: #8b949e;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .product-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #f78166;
+        }
+        
+        .order-btn {
+            background: #238636;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 20px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .order-btn:hover {
+            background: #2ea043;
+        }
+        
+        /* 底部导航 */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #161b22;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            border-top: 1px solid #30363d;
+        }
+        
+        .nav-item {
+            text-align: center;
+            color: #8b949e;
+            cursor: pointer;
+            transition: color 0.3s;
+            flex: 1;
+        }
+        
+        .nav-item.active {
+            color: #58a6ff;
+        }
+        
+        .nav-item i {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .nav-item div {
+            font-size: 12px;
+        }
+        
+        /* 页面内容 */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .page-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #58a6ff;
+        }
+        
+        .user-info {
+            background: #161b22;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #30363d;
+            text-align: center;
+        }
+        
+        .user-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #58a6ff;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+        }
+        
+        .user-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .user-id {
+            font-size: 14px;
+            color: #8b949e;
+        }
+        
+        .menu-item {
+            background: #161b22;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #30363d;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .menu-item:hover {
+            background: #21262d;
+        }
+        
+        .menu-item i {
+            font-size: 20px;
+            margin-right: 15px;
+            width: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 首页内容 -->
+        <div id="home-page" class="page active">
+            <div class="header">
+                <div class="brand">仔星电竞俱乐部</div>
+                <div class="subtitle">专业游戏护航服务</div>
+            </div>
+            
+            <div class="product-list">
+                <!-- 挑战CEO免费服务 -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-tag">免费</div>
+                        <div>挑战CEO</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-title">挑战CEO免费服务</div>
+                        <div class="product-desc">专业打手带您挑战游戏CEO，完全免费体验！</div>
+                        <div class="product-footer">
+                            <div class="product-price">免费</div>
+                            <button class="order-btn" onclick="window.open('https://qm.qq.com/q/UmVWhGbTck', '_blank')">参与</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 阿giao补个蛋 -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-tag">热销</div>
+                        <div>阿giao补个蛋</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-title">阿giao补个蛋服务</div>
+                        <div class="product-desc">打手带老板先自雷一把，老板每掉一件装备打手补500W（1件装备=500W）。装备全掉送一把传世武器，一件不掉也保500W，掉的装备打手给老板全补（补7套+金枪）。</div>
+                        <div class="product-footer">
+                            <div class="product-price">¥25.00</div>
+                            <button class="order-btn" onclick="window.open('https://xiaolatiao.yfdj.06179.com/h5/368d70f52e2a84586dab4e2ef2aa637f/#/pages/index/goods?id=117', '_blank')">下单</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 地铁女陪单 -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-tag">推荐</div>
+                        <div>地铁女陪单</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-title">地铁逃生女陪玩服务</div>
+                        <div class="product-desc">专业女陪玩带您畅玩地铁逃生模式，提升游戏体验！</div>
+                        <div class="product-footer">
+                            <div class="product-price">¥30.00</div>
+                            <button class="order-btn" onclick="window.open('https://xiaolatiao.yfdj.06179.com/h5/368d70f52e2a84586dab4e2ef2aa637f/#/pages/index/goods?id=100', '_blank')">下单</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 我的页面内容 -->
+        <div id="my-page" class="page">
+            <div class="page-title">个人中心</div>
+            
+            <div class="user-info">
+                <div class="user-avatar">👤</div>
+                <div class="user-name">电竞玩家</div>
+                <div class="user-id">ID: ZX888888</div>
+            </div>
+            
+            <div class="menu-item">
+                <i>💰</i>
+                <div>我的钱包</div>
+            </div>
+            
+            <div class="menu-item">
+                <i>👥</i>
+                <div>招募陪玩</div>
+            </div>
+            
+            <div class="menu-item">
+                <i>🔗</i>
+                <div>公众号</div>
+            </div>
+            
+            <div class="menu-item">
+                <i>💬</i>
+                <div>联系客服</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bottom-nav">
+        <div class="nav-item active" data-page="home-page">
+            <i>🏠</i>
+            <div>首页</div>
+        </div>
+        <div class="nav-item" data-page="my-page">
+            <i>👤</i>
+            <div>我的</div>
+        </div>
+    </div>
+
+    <script>
+        // 页面切换功能
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const pageId = this.getAttribute('data-page');
+                
+                // 更新导航状态
+                document.querySelectorAll('.nav-item').forEach(nav => {
+                    nav.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // 切换页面
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById(pageId).classList.add('active');
+            });
+        });
+        
+        // 菜单项点击
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const itemName = this.querySelector('div').textContent;
+                alert(`正在打开${itemName}...`);
+            });
+        });
+    </script>
+</body>
+</html>
