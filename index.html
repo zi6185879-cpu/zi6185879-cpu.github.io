@@ -174,60 +174,30 @@
             color: #58a6ff;
         }
         
-        .user-info {
+        .login-prompt {
             background: #161b22;
             border-radius: 12px;
-            padding: 20px;
+            padding: 30px 20px;
             margin-bottom: 20px;
             border: 1px solid #30363d;
             text-align: center;
         }
         
-        .user-avatar {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: #58a6ff;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
+        .login-btn {
+            background: #238636;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 30px;
             color: white;
-        }
-        
-        .user-name {
-            font-size: 18px;
             font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .user-id {
-            font-size: 14px;
-            color: #8b949e;
-        }
-        
-        .menu-item {
-            background: #161b22;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            border: 1px solid #30363d;
             cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
             transition: all 0.2s;
         }
         
-        .menu-item:hover {
-            background: #21262d;
-        }
-        
-        .menu-item i {
-            font-size: 20px;
-            margin-right: 15px;
-            width: 24px;
-            text-align: center;
+        .login-btn:hover {
+            background: #2ea043;
         }
     </style>
 </head>
@@ -252,7 +222,7 @@
                         <div class="product-desc">专业打手带您挑战游戏CEO，完全免费体验！</div>
                         <div class="product-footer">
                             <div class="product-price">免费</div>
-                            <button class="order-btn" onclick="window.open('https://qm.qq.com/q/UmVWhGbTck', '_blank')">参与</button>
+                            <button class="order-btn" onclick="window.open('https://qun.qq.com/universal-share/share?ac=1&authKey=kvh5geZKFZxhMKczpyhOSpohSBfPu1FaMTTg7De1H3vZtUlvaAhDZ4YCjH3j4cow&busi_data=eyJncm91cENvZGUiOiI5OTE1NTM4MzgiLCJ0b2tlbiI6IjAxcCtZYi8rcHNMN1dOazZJT05aclMxT0dwaWswMFpVYlBablgyT0N6TVR3L1dEbnFMSlZQZSswZ3F2a1ExbmoiLCJ1aW4iOiIyNzk3NDkzNzU0In0%3D&data=AUf5TyR-NeV89LaAa1Jy0dsjLEniufWuD2zb7nyQVPs5zwD5y71vxqJgI_lmNQ71oqeQIcnqmewPrswCZbhRjA&svctype=4&tempid=h5_group_info', '_blank')">参与</button>
                         </div>
                     </div>
                 </div>
@@ -283,8 +253,24 @@
                         <div class="product-title">地铁逃生女陪玩服务</div>
                         <div class="product-desc">专业女陪玩带您畅玩地铁逃生模式，提升游戏体验！</div>
                         <div class="product-footer">
-                            <div class="product-price">¥30.00</div>
+                            <div class="product-price">¥15.00</div>
                             <button class="order-btn" onclick="window.open('https://xiaolatiao.yfdj.06179.com/h5/368d70f52e2a84586dab4e2ef2aa637f/#/pages/index/goods?id=100', '_blank')">下单</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 吃单休闲体验单 -->
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-tag">特惠</div>
+                        <div>吃单休闲体验</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-title">吃单休闲体验服务</div>
+                        <div class="product-desc">轻松休闲的游戏体验，专业陪玩带您享受游戏乐趣！</div>
+                        <div class="product-footer">
+                            <div class="product-price">¥6.60</div>
+                            <button class="order-btn" onclick="window.open('https://xiaolatiao.yfdj.06179.com/h5/368d70f52e2a84586dab4e2ef2aa637f/#/pages/index/goods?id=128', '_blank')">下单</button>
                         </div>
                     </div>
                 </div>
@@ -295,30 +281,10 @@
         <div id="my-page" class="page">
             <div class="page-title">个人中心</div>
             
-            <div class="user-info">
-                <div class="user-avatar">👤</div>
-                <div class="user-name">电竞玩家</div>
-                <div class="user-id">ID: ZX888888</div>
-            </div>
-            
-            <div class="menu-item">
-                <i>💰</i>
-                <div>我的钱包</div>
-            </div>
-            
-            <div class="menu-item">
-                <i>👥</i>
-                <div>招募陪玩</div>
-            </div>
-            
-            <div class="menu-item">
-                <i>🔗</i>
-                <div>公众号</div>
-            </div>
-            
-            <div class="menu-item">
-                <i>💬</i>
-                <div>联系客服</div>
+            <div class="login-prompt">
+                <p>您还没有登录</p>
+                <p>登录后可以查看订单、钱包等信息</p>
+                <button class="login-btn" onclick="window.open('https://xiaolatiao.yfdj.06179.com/h5/368d70f52e2a84586dab4e2ef2aa637f/#/pages/user/login_old', '_blank')">立即登录</button>
             </div>
         </div>
     </div>
@@ -353,14 +319,6 @@
                 document.getElementById(pageId).classList.add('active');
             });
         });
-        
-        // 菜单项点击
-        document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const itemName = this.querySelector('div').textContent;
-                alert(`正在打开${itemName}...`);
-            });
-        });
     </script>
 </body>
-</html>
+                    </html>
